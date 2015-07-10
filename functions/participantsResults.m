@@ -1,23 +1,23 @@
-a = figure('visible','off');
-index = 2;
-validValues = find(labels(:,index) > 6 | labels(:,index) < 4);
-numberOfValid = length(validValues);
-participantResult = zeros(numberOfValid+1,201);
-participantResult(1,1) = 'class';
-for i = 1:40
-    participantResult(1,2+(i-1)*5) = 'ch'+i+'_Theta';
-    participantResult(1,3+(i-1)*5) = 'ch'+i+'_Alpha';
-    participantResult(1,4+(i-1)*5) = 'ch'+i+'_LowBeta';
-    participantResult(1,5+(i-1)*5) = 'ch'+i+'_HighBeta';
-    participantResult(1,6+(i-1)*5) = 'ch'+i+'_Gamma';
+function participantResult = participantsResults(participantsIndex, labelIndex)
+
+if participantsIndex < 10
+    fileName = strcat('C:\Users\Shachar\Desktop\data_preprocessed_matlab\s0', num2str(participantsIndex), '.mat');
+else
+    fileName = strcat('C:\Users\Shachar\Desktop\data_preprocessed_matlab\s', num2str(participantsIndex), '.mat');
 end
+
+load(fileName);
+a = figure('visible','off');
+validValues = find(labels(:,labelIndex) > 6 | labels(:,labelIndex) < 4);
+numberOfValid = length(validValues);
+participantResult = zeros(numberOfValid,202);
 
 for i = 1:numberOfValid
     label = 1;
-    if(labels(validValues(i),index) < 4)
+    if(labels(validValues(i),labelIndex) < 4)
         label = -1;
     end
-    participantResult(i+1, :) = GetVideoVector(squeeze(data(validValues(i),:,:)),label);
+    participantResult(i, :) = GetVideoVector(squeeze(data(validValues(i),:,:)),label, participantsIndex);
 end
-csvwrite('participant1.csv', participantResult);
+
 close all;
