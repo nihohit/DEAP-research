@@ -1,0 +1,681 @@
+=== Run information ===
+
+Scheme:weka.classifiers.meta.AttributeSelectedClassifier -E "weka.attributeSelection.InfoGainAttributeEval " -S "weka.attributeSelection.Ranker -T -1.7976931348623157E308 -N -1" -W weka.classifiers.functions.SMO -- -C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -C 250007 -E 1.0"
+Relation:     valence-weka.filters.unsupervised.attribute.Remove-R2
+Instances:    895
+Attributes:   201
+[list of attributes omitted]
+Test mode:split 66.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+AttributeSelectedClassifier:
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 1 class):
+	Information Gain Ranking Filter
+
+Ranked attributes:
+ 0.0564    165 HighBeta_33
+ 0.0524    166 Gamma_33
+ 0.0362    101 Gamma_20
+ 0.0304    176 Gamma_35
+ 0.0242    164 LowBeta_33
+ 0.0225    175 HighBeta_35
+ 0.02       31 Gamma_6
+ 0.0196    171 Gamma_34
+ 0.0167    170 HighBeta_34
+ 0.0165     30 HighBeta_6
+ 0          55 HighBeta_11
+ 0          58 Alpha_12
+ 0          54 LowBeta_11
+ 0          69 LowBeta_14
+ 0          57 Theta_12
+ 0          53 Alpha_11
+ 0          52 Theta_11
+ 0          56 Gamma_11
+ 0          68 Alpha_14
+ 0          59 LowBeta_12
+ 0          61 Gamma_12
+ 0          60 HighBeta_12
+ 0          67 Theta_14
+ 0          62 Theta_13
+ 0          63 Alpha_13
+ 0          70 HighBeta_14
+ 0          65 HighBeta_13
+ 0          66 Gamma_13
+ 0          64 LowBeta_13
+ 0          71 Gamma_14
+ 0          50 HighBeta_10
+ 0          90 HighBeta_18
+ 0          88 Alpha_18
+ 0          87 Theta_18
+ 0          86 Gamma_17
+ 0          89 LowBeta_18
+ 0          91 Gamma_18
+ 0          72 Theta_15
+ 0          92 Theta_19
+ 0          95 HighBeta_19
+ 0          94 LowBeta_19
+ 0          93 Alpha_19
+ 0          85 HighBeta_17
+ 0          84 LowBeta_17
+ 0          83 Alpha_17
+ 0          82 Theta_17
+ 0          75 HighBeta_15
+ 0          74 LowBeta_15
+ 0          73 Alpha_15
+ 0          76 Gamma_15
+ 0          77 Theta_16
+ 0          78 Alpha_16
+ 0          81 Gamma_16
+ 0          80 HighBeta_16
+ 0          79 LowBeta_16
+ 0          51 Gamma_10
+ 0          45 HighBeta_9
+ 0          49 LowBeta_10
+ 0          16 Gamma_3
+ 0          15 HighBeta_3
+ 0          18 Alpha_4
+ 0          17 Theta_4
+ 0          19 LowBeta_4
+ 0          13 Alpha_3
+ 0          22 Theta_5
+ 0          21 Gamma_4
+ 0          20 HighBeta_4
+ 0          14 LowBeta_3
+ 0          12 Theta_3
+ 0          48 Alpha_10
+ 0           4 LowBeta_1
+ 0           3 Alpha_1
+ 0           6 Gamma_1
+ 0           5 HighBeta_1
+ 0           7 Theta_2
+ 0          11 Gamma_2
+ 0          10 HighBeta_2
+ 0           9 LowBeta_2
+ 0           8 Alpha_2
+ 0          23 Alpha_5
+ 0          24 LowBeta_5
+ 0          25 HighBeta_5
+ 0          41 Gamma_8
+ 0          40 HighBeta_8
+ 0          43 Alpha_9
+ 0          42 Theta_9
+ 0          44 LowBeta_9
+ 0          26 Gamma_5
+ 0          47 Theta_10
+ 0          46 Gamma_9
+ 0          97 Theta_20
+ 0          39 LowBeta_8
+ 0          38 Alpha_8
+ 0          37 Theta_8
+ 0          28 Alpha_6
+ 0          27 Theta_6
+ 0          36 Gamma_7
+ 0          29 LowBeta_6
+ 0          32 Theta_7
+ 0          33 Alpha_7
+ 0          34 LowBeta_7
+ 0          35 HighBeta_7
+ 0          96 Gamma_19
+ 0         201 Gamma_40
+ 0          98 Alpha_20
+ 0          99 LowBeta_20
+ 0         162 Theta_33
+ 0         161 Gamma_32
+ 0         160 HighBeta_32
+ 0         163 Alpha_33
+ 0         167 Theta_34
+ 0         168 Alpha_34
+ 0         173 Alpha_35
+ 0         172 Theta_35
+ 0         169 LowBeta_34
+ 0         159 LowBeta_32
+ 0         158 Alpha_32
+ 0         157 Theta_32
+ 0         149 LowBeta_30
+ 0         148 Alpha_30
+ 0         151 Gamma_30
+ 0         150 HighBeta_30
+ 0         152 Theta_31
+ 0         156 Gamma_31
+ 0         155 HighBeta_31
+ 0         154 LowBeta_31
+ 0         153 Alpha_31
+ 0         174 LowBeta_35
+ 0         177 Theta_36
+ 0         178 Alpha_36
+ 0         193 Alpha_39
+ 0         192 Theta_39
+ 0         195 HighBeta_39
+ 0         194 LowBeta_39
+ 0         196 Gamma_39
+ 0         190 HighBeta_38
+ 0         199 LowBeta_40
+ 0         198 Alpha_40
+ 0         197 Theta_40
+ 0         191 Gamma_38
+ 0         189 LowBeta_38
+ 0         179 LowBeta_36
+ 0         181 Gamma_36
+ 0         180 HighBeta_36
+ 0         183 Alpha_37
+ 0         182 Theta_37
+ 0         184 LowBeta_37
+ 0         188 Alpha_38
+ 0         187 Theta_38
+ 0         186 Gamma_37
+ 0         185 HighBeta_37
+ 0         147 Theta_30
+ 0         146 Gamma_29
+ 0         145 HighBeta_29
+ 0         113 Alpha_23
+ 0         112 Theta_23
+ 0         115 HighBeta_23
+ 0         114 LowBeta_23
+ 0         116 Gamma_23
+ 0         110 HighBeta_22
+ 0         119 LowBeta_24
+ 0         118 Alpha_24
+ 0         117 Theta_24
+ 0         111 Gamma_22
+ 0         109 LowBeta_22
+ 0         121 Gamma_24
+ 0         200 HighBeta_40
+ 0         100 HighBeta_20
+ 0         103 Alpha_21
+ 0         102 Theta_21
+ 0         104 LowBeta_21
+ 0         108 Alpha_22
+ 0         107 Theta_22
+ 0         106 Gamma_21
+ 0         105 HighBeta_21
+ 0         120 HighBeta_24
+ 0         122 Theta_25
+ 0         144 LowBeta_29
+ 0         137 Theta_28
+ 0         136 Gamma_27
+ 0         139 LowBeta_28
+ 0         138 Alpha_28
+ 0         140 HighBeta_28
+ 0         134 LowBeta_27
+ 0         143 Alpha_29
+ 0         142 Theta_29
+ 0         141 Gamma_28
+ 0         135 HighBeta_27
+ 0         133 Alpha_27
+ 0         123 Alpha_25
+ 0         125 HighBeta_25
+ 0         124 LowBeta_25
+ 0         127 Theta_26
+ 0         126 Gamma_25
+ 0         128 Alpha_26
+ 0         132 Theta_27
+ 0         131 Gamma_26
+ 0         130 HighBeta_26
+ 0         129 LowBeta_26
+ 0           2 Theta_1
+
+Selected attributes: 165,166,101,176,164,175,31,171,170,30,55,58,54,69,57,53,52,56,68,59,61,60,67,62,63,70,65,66,64,71,50,90,88,87,86,89,91,72,92,95,94,93,85,84,83,82,75,74,73,76,77,78,81,80,79,51,45,49,16,15,18,17,19,13,22,21,20,14,12,48,4,3,6,5,7,11,10,9,8,23,24,25,41,40,43,42,44,26,47,46,97,39,38,37,28,27,36,29,32,33,34,35,96,201,98,99,162,161,160,163,167,168,173,172,169,159,158,157,149,148,151,150,152,156,155,154,153,174,177,178,193,192,195,194,196,190,199,198,197,191,189,179,181,180,183,182,184,188,187,186,185,147,146,145,113,112,115,114,116,110,119,118,117,111,109,121,200,100,103,102,104,108,107,106,105,120,122,144,137,136,139,138,140,134,143,142,141,135,133,123,125,124,127,126,128,132,131,130,129,2 : 200
+
+
+Header of reduced data:
+@relation 'valence-weka.filters.unsupervised.attribute.Remove-R2-weka.filters.unsupervised.attribute.Remove-V-R165-166,101,176,164,175,31,171,170,30,55,58,54,69,57,53,52,56,68,59,61,60,67,62-63,70,65-66,64,71,50,90,88,87,86,89,91,72,92,95,94,93,85,84,83,82,75,74,73,76-78,81,80,79,51,45,49,16,15,18,17,19,13,22,21,20,14,12,48,4,3,6,5,7,11,10,9,8,23-25,41,40,43,42,44,26,47,46,97,39,38,37,28,27,36,29,32-35,96,201,98-99,162,161,160,163,167-168,173,172,169,159,158,157,149,148,151,150,152,156,155,154,153,174,177-178,193,192,195,194,196,190,199,198,197,191,189,179,181,180,183,182,184,188,187,186,185,147,146,145,113,112,115,114,116,110,119,118,117,111,109,121,200,100,103,102,104,108,107,106,105,120,122,144,137,136,139,138,140,134,143,142,141,135,133,123,125,124,127,126,128,132,131,130,129,2,1'
+
+@attribute HighBeta_33 numeric
+@attribute Gamma_33 numeric
+@attribute Gamma_20 numeric
+@attribute Gamma_35 numeric
+@attribute LowBeta_33 numeric
+@attribute HighBeta_35 numeric
+@attribute Gamma_6 numeric
+@attribute Gamma_34 numeric
+@attribute HighBeta_34 numeric
+@attribute HighBeta_6 numeric
+@attribute HighBeta_11 numeric
+@attribute Alpha_12 numeric
+@attribute LowBeta_11 numeric
+@attribute LowBeta_14 numeric
+@attribute Theta_12 numeric
+@attribute Alpha_11 numeric
+@attribute Theta_11 numeric
+@attribute Gamma_11 numeric
+@attribute Alpha_14 numeric
+@attribute LowBeta_12 numeric
+@attribute Gamma_12 numeric
+@attribute HighBeta_12 numeric
+@attribute Theta_14 numeric
+@attribute Theta_13 numeric
+@attribute Alpha_13 numeric
+@attribute HighBeta_14 numeric
+@attribute HighBeta_13 numeric
+@attribute Gamma_13 numeric
+@attribute LowBeta_13 numeric
+@attribute Gamma_14 numeric
+@attribute HighBeta_10 numeric
+@attribute HighBeta_18 numeric
+@attribute Alpha_18 numeric
+@attribute Theta_18 numeric
+@attribute Gamma_17 numeric
+@attribute LowBeta_18 numeric
+@attribute Gamma_18 numeric
+@attribute Theta_15 numeric
+@attribute Theta_19 numeric
+@attribute HighBeta_19 numeric
+@attribute LowBeta_19 numeric
+@attribute Alpha_19 numeric
+@attribute HighBeta_17 numeric
+@attribute LowBeta_17 numeric
+@attribute Alpha_17 numeric
+@attribute Theta_17 numeric
+@attribute HighBeta_15 numeric
+@attribute LowBeta_15 numeric
+@attribute Alpha_15 numeric
+@attribute Gamma_15 numeric
+@attribute Theta_16 numeric
+@attribute Alpha_16 numeric
+@attribute Gamma_16 numeric
+@attribute HighBeta_16 numeric
+@attribute LowBeta_16 numeric
+@attribute Gamma_10 numeric
+@attribute HighBeta_9 numeric
+@attribute LowBeta_10 numeric
+@attribute Gamma_3 numeric
+@attribute HighBeta_3 numeric
+@attribute Alpha_4 numeric
+@attribute Theta_4 numeric
+@attribute LowBeta_4 numeric
+@attribute Alpha_3 numeric
+@attribute Theta_5 numeric
+@attribute Gamma_4 numeric
+@attribute HighBeta_4 numeric
+@attribute LowBeta_3 numeric
+@attribute Theta_3 numeric
+@attribute Alpha_10 numeric
+@attribute LowBeta_1 numeric
+@attribute Alpha_1 numeric
+@attribute Gamma_1 numeric
+@attribute HighBeta_1 numeric
+@attribute Theta_2 numeric
+@attribute Gamma_2 numeric
+@attribute HighBeta_2 numeric
+@attribute LowBeta_2 numeric
+@attribute Alpha_2 numeric
+@attribute Alpha_5 numeric
+@attribute LowBeta_5 numeric
+@attribute HighBeta_5 numeric
+@attribute Gamma_8 numeric
+@attribute HighBeta_8 numeric
+@attribute Alpha_9 numeric
+@attribute Theta_9 numeric
+@attribute LowBeta_9 numeric
+@attribute Gamma_5 numeric
+@attribute Theta_10 numeric
+@attribute Gamma_9 numeric
+@attribute Theta_20 numeric
+@attribute LowBeta_8 numeric
+@attribute Alpha_8 numeric
+@attribute Theta_8 numeric
+@attribute Alpha_6 numeric
+@attribute Theta_6 numeric
+@attribute Gamma_7 numeric
+@attribute LowBeta_6 numeric
+@attribute Theta_7 numeric
+@attribute Alpha_7 numeric
+@attribute LowBeta_7 numeric
+@attribute HighBeta_7 numeric
+@attribute Gamma_19 numeric
+@attribute Gamma_40 numeric
+@attribute Alpha_20 numeric
+@attribute LowBeta_20 numeric
+@attribute Theta_33 numeric
+@attribute Gamma_32 numeric
+@attribute HighBeta_32 numeric
+@attribute Alpha_33 numeric
+@attribute Theta_34 numeric
+@attribute Alpha_34 numeric
+@attribute Alpha_35 numeric
+@attribute Theta_35 numeric
+@attribute LowBeta_34 numeric
+@attribute LowBeta_32 numeric
+@attribute Alpha_32 numeric
+@attribute Theta_32 numeric
+@attribute LowBeta_30 numeric
+@attribute Alpha_30 numeric
+@attribute Gamma_30 numeric
+@attribute HighBeta_30 numeric
+@attribute Theta_31 numeric
+@attribute Gamma_31 numeric
+@attribute HighBeta_31 numeric
+@attribute LowBeta_31 numeric
+@attribute Alpha_31 numeric
+@attribute LowBeta_35 numeric
+@attribute Theta_36 numeric
+@attribute Alpha_36 numeric
+@attribute Alpha_39 numeric
+@attribute Theta_39 numeric
+@attribute HighBeta_39 numeric
+@attribute LowBeta_39 numeric
+@attribute Gamma_39 numeric
+@attribute HighBeta_38 numeric
+@attribute LowBeta_40 numeric
+@attribute Alpha_40 numeric
+@attribute Theta_40 numeric
+@attribute Gamma_38 numeric
+@attribute LowBeta_38 numeric
+@attribute LowBeta_36 numeric
+@attribute Gamma_36 numeric
+@attribute HighBeta_36 numeric
+@attribute Alpha_37 numeric
+@attribute Theta_37 numeric
+@attribute LowBeta_37 numeric
+@attribute Alpha_38 numeric
+@attribute Theta_38 numeric
+@attribute Gamma_37 numeric
+@attribute HighBeta_37 numeric
+@attribute Theta_30 numeric
+@attribute Gamma_29 numeric
+@attribute HighBeta_29 numeric
+@attribute Alpha_23 numeric
+@attribute Theta_23 numeric
+@attribute HighBeta_23 numeric
+@attribute LowBeta_23 numeric
+@attribute Gamma_23 numeric
+@attribute HighBeta_22 numeric
+@attribute LowBeta_24 numeric
+@attribute Alpha_24 numeric
+@attribute Theta_24 numeric
+@attribute Gamma_22 numeric
+@attribute LowBeta_22 numeric
+@attribute Gamma_24 numeric
+@attribute HighBeta_40 numeric
+@attribute HighBeta_20 numeric
+@attribute Alpha_21 numeric
+@attribute Theta_21 numeric
+@attribute LowBeta_21 numeric
+@attribute Alpha_22 numeric
+@attribute Theta_22 numeric
+@attribute Gamma_21 numeric
+@attribute HighBeta_21 numeric
+@attribute HighBeta_24 numeric
+@attribute Theta_25 numeric
+@attribute LowBeta_29 numeric
+@attribute Theta_28 numeric
+@attribute Gamma_27 numeric
+@attribute LowBeta_28 numeric
+@attribute Alpha_28 numeric
+@attribute HighBeta_28 numeric
+@attribute LowBeta_27 numeric
+@attribute Alpha_29 numeric
+@attribute Theta_29 numeric
+@attribute Gamma_28 numeric
+@attribute HighBeta_27 numeric
+@attribute Alpha_27 numeric
+@attribute Alpha_25 numeric
+@attribute HighBeta_25 numeric
+@attribute LowBeta_25 numeric
+@attribute Theta_26 numeric
+@attribute Gamma_25 numeric
+@attribute Alpha_26 numeric
+@attribute Theta_27 numeric
+@attribute Gamma_26 numeric
+@attribute HighBeta_26 numeric
+@attribute LowBeta_26 numeric
+@attribute Theta_1 numeric
+@attribute class {-1,1}
+
+@data
+
+
+Classifier Model
+SMO
+
+Kernel used:
+  Linear Kernel: K(x,y) = <x,y>
+
+Classifier for classes: -1, 1
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.8421 * (normalized) HighBeta_33
+ +       2.5801 * (normalized) Gamma_33
+ +      -0.7902 * (normalized) Gamma_20
+ +       1.6884 * (normalized) Gamma_35
+ +      -0.3665 * (normalized) LowBeta_33
+ +       1.2262 * (normalized) HighBeta_35
+ +       0.1597 * (normalized) Gamma_6
+ +      -1.6202 * (normalized) Gamma_34
+ +      -1.3079 * (normalized) HighBeta_34
+ +       0.1842 * (normalized) HighBeta_6
+ +      -0.5887 * (normalized) HighBeta_11
+ +       0.1423 * (normalized) Alpha_12
+ +       0.5747 * (normalized) LowBeta_11
+ +      -0.1476 * (normalized) LowBeta_14
+ +       0.7623 * (normalized) Theta_12
+ +       0.2099 * (normalized) Alpha_11
+ +      -0.6786 * (normalized) Theta_11
+ +      -0.9268 * (normalized) Gamma_11
+ +      -0.3297 * (normalized) Alpha_14
+ +      -0.8358 * (normalized) LowBeta_12
+ +      -0.3242 * (normalized) Gamma_12
+ +      -1.1602 * (normalized) HighBeta_12
+ +      -0.3396 * (normalized) Theta_14
+ +       0.5029 * (normalized) Theta_13
+ +       0.6419 * (normalized) Alpha_13
+ +      -0.1538 * (normalized) HighBeta_14
+ +       0.3096 * (normalized) HighBeta_13
+ +      -0.0413 * (normalized) Gamma_13
+ +       0.709  * (normalized) LowBeta_13
+ +      -0.2478 * (normalized) Gamma_14
+ +      -0.0853 * (normalized) HighBeta_10
+ +      -0.9285 * (normalized) HighBeta_18
+ +      -0.454  * (normalized) Alpha_18
+ +      -0.731  * (normalized) Theta_18
+ +      -0.2205 * (normalized) Gamma_17
+ +      -0.4407 * (normalized) LowBeta_18
+ +      -0.8748 * (normalized) Gamma_18
+ +      -0.6048 * (normalized) Theta_15
+ +       0.0967 * (normalized) Theta_19
+ +       0.0209 * (normalized) HighBeta_19
+ +       0.3107 * (normalized) LowBeta_19
+ +      -0.2672 * (normalized) Alpha_19
+ +      -0.324  * (normalized) HighBeta_17
+ +       0.3056 * (normalized) LowBeta_17
+ +       0.6354 * (normalized) Alpha_17
+ +       0.7897 * (normalized) Theta_17
+ +      -0.4537 * (normalized) HighBeta_15
+ +      -0.1789 * (normalized) LowBeta_15
+ +      -0.1475 * (normalized) Alpha_15
+ +      -0.5855 * (normalized) Gamma_15
+ +      -0.4728 * (normalized) Theta_16
+ +      -0.7916 * (normalized) Alpha_16
+ +       0.6386 * (normalized) Gamma_16
+ +       0.1653 * (normalized) HighBeta_16
+ +      -0.3542 * (normalized) LowBeta_16
+ +      -0.2314 * (normalized) Gamma_10
+ +      -0.4019 * (normalized) HighBeta_9
+ +       0.362  * (normalized) LowBeta_10
+ +       0.2279 * (normalized) Gamma_3
+ +       0.134  * (normalized) HighBeta_3
+ +       0.5521 * (normalized) Alpha_4
+ +       0.8022 * (normalized) Theta_4
+ +      -0.3539 * (normalized) LowBeta_4
+ +       0.3735 * (normalized) Alpha_3
+ +       0.0921 * (normalized) Theta_5
+ +      -0.4357 * (normalized) Gamma_4
+ +      -0.3176 * (normalized) HighBeta_4
+ +       0.5208 * (normalized) LowBeta_3
+ +      -0.0195 * (normalized) Theta_3
+ +       0.4155 * (normalized) Alpha_10
+ +      -0.7387 * (normalized) LowBeta_1
+ +       0.2871 * (normalized) Alpha_1
+ +      -1.07   * (normalized) Gamma_1
+ +      -1.4027 * (normalized) HighBeta_1
+ +       0.6751 * (normalized) Theta_2
+ +      -0.0033 * (normalized) Gamma_2
+ +      -0.0411 * (normalized) HighBeta_2
+ +       0.5652 * (normalized) LowBeta_2
+ +       0.7335 * (normalized) Alpha_2
+ +      -0.1562 * (normalized) Alpha_5
+ +       0.1774 * (normalized) LowBeta_5
+ +      -0.1314 * (normalized) HighBeta_5
+ +       0.6265 * (normalized) Gamma_8
+ +      -0.0863 * (normalized) HighBeta_8
+ +      -0.1747 * (normalized) Alpha_9
+ +       0.267  * (normalized) Theta_9
+ +       0.0315 * (normalized) LowBeta_9
+ +       0.0178 * (normalized) Gamma_5
+ +       0.3502 * (normalized) Theta_10
+ +      -0.4531 * (normalized) Gamma_9
+ +      -0.3325 * (normalized) Theta_20
+ +       0.8827 * (normalized) LowBeta_8
+ +      -0.1825 * (normalized) Alpha_8
+ +      -1.1781 * (normalized) Theta_8
+ +       0.5534 * (normalized) Alpha_6
+ +       0.0426 * (normalized) Theta_6
+ +      -0.2186 * (normalized) Gamma_7
+ +       0.8636 * (normalized) LowBeta_6
+ +       0.043  * (normalized) Theta_7
+ +       0.0415 * (normalized) Alpha_7
+ +       0.0117 * (normalized) LowBeta_7
+ +      -0.1056 * (normalized) HighBeta_7
+ +       0.0158 * (normalized) Gamma_19
+ +       0.1669 * (normalized) Gamma_40
+ +       0.0596 * (normalized) Alpha_20
+ +      -0.231  * (normalized) LowBeta_20
+ +       1.2965 * (normalized) Theta_33
+ +       0.8118 * (normalized) Gamma_32
+ +       0.6343 * (normalized) HighBeta_32
+ +       1.0418 * (normalized) Alpha_33
+ +      -0.8916 * (normalized) Theta_34
+ +      -0.1098 * (normalized) Alpha_34
+ +      -0.0365 * (normalized) Alpha_35
+ +      -0.0271 * (normalized) Theta_35
+ +      -0.2032 * (normalized) LowBeta_34
+ +       0.741  * (normalized) LowBeta_32
+ +       0.5132 * (normalized) Alpha_32
+ +       1.2969 * (normalized) Theta_32
+ +      -0.5992 * (normalized) LowBeta_30
+ +      -0.0239 * (normalized) Alpha_30
+ +       0.2383 * (normalized) Gamma_30
+ +      -0.2526 * (normalized) HighBeta_30
+ +      -0.8612 * (normalized) Theta_31
+ +      -0.4317 * (normalized) Gamma_31
+ +      -0.3863 * (normalized) HighBeta_31
+ +       0.121  * (normalized) LowBeta_31
+ +      -0.3487 * (normalized) Alpha_31
+ +       0.3947 * (normalized) LowBeta_35
+ +      -0.1813 * (normalized) Theta_36
+ +      -0.167  * (normalized) Alpha_36
+ +      -0.0593 * (normalized) Alpha_39
+ +      -0.0347 * (normalized) Theta_39
+ +      -0.0818 * (normalized) HighBeta_39
+ +      -0.081  * (normalized) LowBeta_39
+ +      -0.0765 * (normalized) Gamma_39
+ +       0.4107 * (normalized) HighBeta_38
+ +       0.3877 * (normalized) LowBeta_40
+ +       0.3492 * (normalized) Alpha_40
+ +       0.2451 * (normalized) Theta_40
+ +       0.6133 * (normalized) Gamma_38
+ +       0.2838 * (normalized) LowBeta_38
+ +      -0.2804 * (normalized) LowBeta_36
+ +      -0.4138 * (normalized) Gamma_36
+ +      -0.376  * (normalized) HighBeta_36
+ +      -0.1195 * (normalized) Alpha_37
+ +      -0.0953 * (normalized) Theta_37
+ +      -0.1004 * (normalized) LowBeta_37
+ +      -0.0455 * (normalized) Alpha_38
+ +      -1.4045 * (normalized) Theta_38
+ +       0.0864 * (normalized) Gamma_37
+ +      -0.0824 * (normalized) HighBeta_37
+ +      -0.3062 * (normalized) Theta_30
+ +      -0.3708 * (normalized) Gamma_29
+ +      -0.3223 * (normalized) HighBeta_29
+ +      -0.2535 * (normalized) Alpha_23
+ +      -0.7806 * (normalized) Theta_23
+ +       0.586  * (normalized) HighBeta_23
+ +       0.9025 * (normalized) LowBeta_23
+ +       0.89   * (normalized) Gamma_23
+ +       0.6462 * (normalized) HighBeta_22
+ +       0.0389 * (normalized) LowBeta_24
+ +       0.3873 * (normalized) Alpha_24
+ +      -0.0424 * (normalized) Theta_24
+ +       0.113  * (normalized) Gamma_22
+ +       0.6463 * (normalized) LowBeta_22
+ +       0.0048 * (normalized) Gamma_24
+ +       0.1935 * (normalized) HighBeta_40
+ +      -0.7634 * (normalized) HighBeta_20
+ +       0.4611 * (normalized) Alpha_21
+ +       1.3891 * (normalized) Theta_21
+ +       0.3313 * (normalized) LowBeta_21
+ +       1.0948 * (normalized) Alpha_22
+ +       0.3269 * (normalized) Theta_22
+ +       0.6648 * (normalized) Gamma_21
+ +       0.4204 * (normalized) HighBeta_21
+ +       0.1847 * (normalized) HighBeta_24
+ +      -0.319  * (normalized) Theta_25
+ +       0.2573 * (normalized) LowBeta_29
+ +       0.1464 * (normalized) Theta_28
+ +      -0.0016 * (normalized) Gamma_27
+ +      -0.0241 * (normalized) LowBeta_28
+ +      -0.4009 * (normalized) Alpha_28
+ +       0.0221 * (normalized) HighBeta_28
+ +      -0.0917 * (normalized) LowBeta_27
+ +       0.3946 * (normalized) Alpha_29
+ +      -0.4994 * (normalized) Theta_29
+ +       0.3797 * (normalized) Gamma_28
+ +      -0.1008 * (normalized) HighBeta_27
+ +       0.1094 * (normalized) Alpha_27
+ +      -0.4383 * (normalized) Alpha_25
+ +      -0.6033 * (normalized) HighBeta_25
+ +      -0.3883 * (normalized) LowBeta_25
+ +      -0.0452 * (normalized) Theta_26
+ +      -0.3652 * (normalized) Gamma_25
+ +      -0.3884 * (normalized) Alpha_26
+ +      -0.1099 * (normalized) Theta_27
+ +      -1.2367 * (normalized) Gamma_26
+ +      -0.7833 * (normalized) HighBeta_26
+ +      -0.3876 * (normalized) LowBeta_26
+ +       0.4204 * (normalized) Theta_1
+ +       0.5237
+
+Number of kernel evaluations: 249005 (88.303% cached)
+
+
+
+Time taken to build model: 0.21 seconds
+
+=== Evaluation on test split ===
+=== Summary ===
+
+Correctly Classified Instances         194               63.8158 %
+Incorrectly Classified Instances       110               36.1842 %
+Kappa statistic                          0.1427
+Mean absolute error                      0.3618
+Root mean squared error                  0.6015
+Relative absolute error                 75.7256 %
+Root relative squared error            123.6684 %
+Total Number of Instances              304     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.25      0.122      0.558     0.25      0.345      0.564    -1
+                 0.878     0.75       0.655     0.878     0.75       0.564    1
+Weighted Avg.    0.638     0.51       0.618     0.638     0.596      0.564
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+  29  87 |   a = -1
+  23 165 |   b = 1
+
