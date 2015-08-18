@@ -10,7 +10,7 @@ for labelIndex = 1:4
     fclose(fid);
 end
 
-for participantsIndex = 5:5
+for participantsIndex = 1:32
     
     participantResult =  participantsResults(participantsIndex);
     
