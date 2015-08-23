@@ -11,7 +11,7 @@ a = figure('visible','off');
 
 %validValues = find(labels(:,labelIndex) > 6 | labels(:,labelIndex) < 4);
 %numberOfValid = length(validValues);
-participantResult = zeros(40,164);
+participantResult = zeros(40,644);
 
 for i = 1:40
     labelValues = zeros(1,4);

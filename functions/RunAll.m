@@ -19,12 +19,12 @@ for participantsIndex = 1:32
         % find all non-zero indices
         relevantResults = find(participantResult(:,labelIndex));
         numOfRelevantResults = length(relevantResults);
-        relevantParticipantResult = zeros(numOfRelevantResults,161);
+        relevantParticipantResult = zeros(numOfRelevantResults,641);
         
         % enter all non zero indices into array
         for i = 1:numOfRelevantResults
-            relevantParticipantResult(i,161) = participantResult(relevantResults(i), labelIndex);
-            relevantParticipantResult(i,1:160) = participantResult(relevantResults(i), 5:164);
+            relevantParticipantResult(i,641) = participantResult(relevantResults(i), labelIndex);
+            relevantParticipantResult(i,1:640) = participantResult(relevantResults(i), 5:644);
         end
         dlmwrite (fileName, relevantParticipantResult, '-append');
     end
