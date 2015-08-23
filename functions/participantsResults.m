@@ -23,7 +23,7 @@ for i = 1:40
         end
     end
     
-    participantResult(i, :) = GetVideoVector(squeeze(data(i,:,:)),labelValues);
+    participantResult(i, :) = GetVideoVector(data,i,labelValues);
 end
 
 close all;

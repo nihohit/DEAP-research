@@ -1,10 +1,11 @@
-function result = GetVideoVector(videoVector, labels)
+function result = GetVideoVector(dataVector, participantIndex, labels)
 a = figure('visible','off');
 
 lengthInSeconds = 63;
 irrelevantSeconds = 3;
 relevantSeconds = lengthInSeconds - irrelevantSeconds;
-frequencyPerSecond = length(squeeze(videoVector(1,:))) / lengthInSeconds;
+sizeArray = size(dataVector);
+frequencyPerSecond = sizeArray(1,3) / lengthInSeconds;
 amountOfSegments = 4;
 segmentOverlap = 0.5;
 beginFrom = irrelevantSeconds*frequencyPerSecond;
@@ -13,9 +14,7 @@ overlapSize = segmentLength * segmentOverlap;
 
 result = zeros(1,644);
 result(1,1:4) = labels;
-for i = 1:32
-    currentChannel = squeeze(videoVector(i,:));
-    
+for channelIndex = 1:32
     for segment = 0:amountOfSegments-1
        min = beginFrom + (segment * segmentLength);
        if(segment > 0)
@@ -26,9 +25,10 @@ for i = 1:32
        if(segment < amountOfSegments-2)
           max = max + overlapSize;
        end
-       currentSegment = currentChannel(1,min:max);
+       
+       currentSegment = squeeze(dataVector(participantIndex,channelIndex,min:max));
        segmentResult = RunFft(currentSegment);
-       writeToIndex = (((i-1)*amountOfSegments) + segment)*5 + 4;
+       writeToIndex = (((channelIndex-1)*amountOfSegments) + segment)*5 + 4;
        result(1, 1 + writeToIndex:writeToIndex + 5) = segmentResult;
     end
 end
