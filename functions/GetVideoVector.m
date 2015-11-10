@@ -12,7 +12,7 @@ beginFrom = irrelevantSeconds*frequencyPerSecond;
 segmentLength = (relevantSeconds * frequencyPerSecond / amountOfSegments);
 overlapSize = segmentLength * segmentOverlap;
 
-result = zeros(1,644);
+result = zeros(1,644); % 32 channels x 6 bands x 4 segments
 result(1,1:4) = labels;
 for channelIndex = 1:32
     for segment = 0:amountOfSegments-1
