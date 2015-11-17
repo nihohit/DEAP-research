@@ -1,6 +1,6 @@
 function fileName = GetFilename(labelIndex)
 
-currentExperiment = 'FFT4Segment0.5Overlap2Run';
+currentExperiment = 'normalizedFFT';
 
 name = GetLabelName(labelIndex);
 fileName = strcat('../data preprocessing results/' , name , currentExperiment, '.arff');

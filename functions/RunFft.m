@@ -12,18 +12,18 @@ nfft = 2^( nextpow2(length(channelVector)) ); % Next power of 2 from length of c
 f = frequency/2*linspace(0,1,nfft/2+1);
 X = fft(channelVector,nfft);
 X = X(1:nfft/2+1); % cut the vector in 2, and get the relevant half
-logAbsX = log(abs(X));
-figure;  
-%plot(f,logAbsX); % plot freq domain
+absX = abs(X);
+
+%plot(f,absX); % plot freq domain
 thetaMinIndex = find(f >= 4 , 1);
 alphaMinIndex = find(f >= 8 , 1);
 lowBetaMinIndex = find(f >= 16 , 1);
 highBetaMinIndex = find(f >= 25 , 1);
 gammaMinIndex = find(f >= 31 , 1);
 gammaMaxIndex = find(f >= 45 , 1);
-theta = mean(logAbsX(thetaMinIndex: alphaMinIndex-1,1));
-alpha = mean(logAbsX(alphaMinIndex: lowBetaMinIndex-1,1));
-lowBeta = mean(logAbsX(lowBetaMinIndex: highBetaMinIndex-1,1));
-highBeta = mean(logAbsX(highBetaMinIndex: gammaMinIndex-1,1));
-gamma = mean(logAbsX(gammaMinIndex: gammaMaxIndex-1));
+theta = mean(absX(thetaMinIndex: alphaMinIndex-1,1));
+alpha = mean(absX(alphaMinIndex: lowBetaMinIndex-1,1));
+lowBeta = mean(absX(lowBetaMinIndex: highBetaMinIndex-1,1));
+highBeta = mean(absX(highBetaMinIndex: gammaMinIndex-1,1));
+gamma = mean(absX(gammaMinIndex: gammaMaxIndex-1));
 result = [theta alpha lowBeta highBeta gamma];

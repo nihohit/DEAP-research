@@ -1,34 +1,16 @@
-function result = GetVideoVector(dataVector, participantIndex, labels)
+function result = GetVideoVector(dataVector, participantIndex, labels, numOfChannels, numOfBands)
 a = figure('visible','off');
 
-lengthInSeconds = 63;
-irrelevantSeconds = 3;
-relevantSeconds = lengthInSeconds - irrelevantSeconds;
-sizeArray = size(dataVector);
-frequencyPerSecond = sizeArray(1,3) / lengthInSeconds;
-amountOfSegments = 4;
-segmentOverlap = 0.5;
-beginFrom = irrelevantSeconds*frequencyPerSecond;
-segmentLength = (relevantSeconds * frequencyPerSecond / amountOfSegments);
-overlapSize = segmentLength * segmentOverlap;
+numberOfLabels = length(labels);
 
-result = zeros(1,644); % 32 channels x 6 bands x 4 segments
-result(1,1:4) = labels;
-for channelIndex = 1:32
-    for segment = 0:amountOfSegments-1
-       min = beginFrom + (segment * segmentLength);
-       if(segment > 0)
-          min = min - overlapSize;
-       end
-       max = beginFrom + ((segment + 1) * segmentLength) - 1;
-       
-       if(segment < amountOfSegments-2)
-          max = max + overlapSize;
-       end
-       
-       currentSegment = squeeze(dataVector(participantIndex,channelIndex,min:max));
-       segmentResult = RunFft(currentSegment);
-       writeToIndex = (((channelIndex-1)*amountOfSegments) + segment)*5 + 4;
-       result(1, 1 + writeToIndex:writeToIndex + 5) = segmentResult;
-    end
+result = zeros(1, numOfBands * numOfChannels + numberOfLabels);
+result(1, 1:numberOfLabels) = labels;
+for channelIndex = 1:numOfChannels
+       segmentResult = RunNormalizedFft(squeeze(dataVector(participantIndex,channelIndex,:)));
+       writeToIndex = (channelIndex-1) * numOfBands + numberOfLabels;
+       result(1, 1 + writeToIndex:writeToIndex + numOfBands) = segmentResult;
+       clear segmentResult;
+       %disp(sprintf('done channel %d', channelIndex));
 end
+
+close all;
