@@ -9,28 +9,24 @@ end
 load(fileName);
 a = figure('visible','off');
 
+data = data(:,1:numOfChannels,:); %remove excess channels
+
 participantResult = zeros(numOfMovies,numOfBands * numOfChannels + numOfLabels); 
 
-time = tic;
+normalizedFFT = RunFullNormalizedFFT(data);
 
-for i = 1:numOfMovies % movies
-    movieTime = tic;
-    
-    labelValues = zeros(1,numOfLabels);
+for movieIndex = 1:numOfMovies % movies
+    %enter labels
     for label = 1:numOfLabels
-        if(labels(i,label) < 4)
-            labelValues(label) = -1;
-        elseif(labels(i,label) > 6)
-            labelValues(label) = 1;
+        if(labels(movieIndex,label) < 4)
+            participantResult(movieIndex,label) = -1;
+        elseif(labels(movieIndex,label) > 6)
+            participantResult(movieIndex,label) = 1;
         end
     end
     
-    participantResult(i, :) = GetVideoVector(data,i,labelValues, numOfChannels, numOfBands);
-    movieTime = toc(movieTime);
-    disp(sprintf('done video %d in %d', i, movieTime));
+    for channelIndex = 1:numOfChannels % movies
+       writeToIndex = (channelIndex-1) * numOfBands + numOfLabels;
+       participantResult(movieIndex, 1 + writeToIndex:writeToIndex + numOfBands) = normalizedFFT(movieIndex, channelIndex,1:5); 
+    end
 end
-
-clear data;
-totalTime = toc(time);
-
-disp(sprintf('done participant %d, it had taken %d', participantsIndex, totalTime));

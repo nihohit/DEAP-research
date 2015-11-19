@@ -3,7 +3,7 @@ channelSize = size(channelVector);
 secondLength = channelSize(1) / 63;
 
 baseline = channelVector(1:secondLength*3,:);
-video = channelVector(secondLength*3:length(channelVector));
+video = channelVector(secondLength*3+1:length(channelVector));
 baselineFFT = RunFft(baseline);
 videoFFT = RunFft(video);
 
