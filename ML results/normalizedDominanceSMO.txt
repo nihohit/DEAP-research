@@ -1,0 +1,214 @@
+=== Run information ===
+
+Scheme:weka.classifiers.functions.SMO -C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -C 250007 -E 1.0"
+Relation:     dominance
+Instances:    883
+Attributes:   161
+[list of attributes omitted]
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+SMO
+
+Kernel used:
+  Linear Kernel: K(x,y) = <x,y>
+
+Classifier for classes: -1, 1
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.4616 * (normalized) Theta_1
+ +      -0.2745 * (normalized) Alpha_1
+ +      -0.7637 * (normalized) LowBeta_1
+ +      -1.3444 * (normalized) HighBeta_1
+ +      -0.222  * (normalized) Gamma_1
+ +       0.0123 * (normalized) Theta_2
+ +       0.7399 * (normalized) Alpha_2
+ +      -0.4929 * (normalized) LowBeta_2
+ +      -0.9072 * (normalized) HighBeta_2
+ +       0.5122 * (normalized) Gamma_2
+ +       0.1949 * (normalized) Theta_3
+ +       0.4328 * (normalized) Alpha_3
+ +       0.0825 * (normalized) LowBeta_3
+ +      -0.2614 * (normalized) HighBeta_3
+ +       0.4917 * (normalized) Gamma_3
+ +       0.1012 * (normalized) Theta_4
+ +       0.0137 * (normalized) Alpha_4
+ +      -1.2341 * (normalized) LowBeta_4
+ +       0.1043 * (normalized) HighBeta_4
+ +       0.4672 * (normalized) Gamma_4
+ +      -0.2157 * (normalized) Theta_5
+ +      -0.4995 * (normalized) Alpha_5
+ +       0.609  * (normalized) LowBeta_5
+ +      -0.4944 * (normalized) HighBeta_5
+ +      -0.2325 * (normalized) Gamma_5
+ +      -0.362  * (normalized) Theta_6
+ +      -0.0524 * (normalized) Alpha_6
+ +       0.4741 * (normalized) LowBeta_6
+ +       0.4345 * (normalized) HighBeta_6
+ +       0.1789 * (normalized) Gamma_6
+ +      -0.2018 * (normalized) Theta_7
+ +      -0.3739 * (normalized) Alpha_7
+ +       0.7536 * (normalized) LowBeta_7
+ +      -0.4212 * (normalized) HighBeta_7
+ +       0.3208 * (normalized) Gamma_7
+ +       0.3516 * (normalized) Theta_8
+ +      -0.6625 * (normalized) Alpha_8
+ +      -0.6491 * (normalized) LowBeta_8
+ +       0.4315 * (normalized) HighBeta_8
+ +       0.8842 * (normalized) Gamma_8
+ +      -0.4475 * (normalized) Theta_9
+ +      -0.4257 * (normalized) Alpha_9
+ +       0.8776 * (normalized) LowBeta_9
+ +      -0.0509 * (normalized) HighBeta_9
+ +       0.4956 * (normalized) Gamma_9
+ +       0.4757 * (normalized) Theta_10
+ +       0.3379 * (normalized) Alpha_10
+ +      -0.5807 * (normalized) LowBeta_10
+ +      -0.081  * (normalized) HighBeta_10
+ +      -0.3997 * (normalized) Gamma_10
+ +       0.3783 * (normalized) Theta_11
+ +       0.1486 * (normalized) Alpha_11
+ +      -0.596  * (normalized) LowBeta_11
+ +      -0.4368 * (normalized) HighBeta_11
+ +      -0.3116 * (normalized) Gamma_11
+ +       0.2834 * (normalized) Theta_12
+ +       0.9006 * (normalized) Alpha_12
+ +       0.014  * (normalized) LowBeta_12
+ +      -0.394  * (normalized) HighBeta_12
+ +      -0.1717 * (normalized) Gamma_12
+ +      -0.4015 * (normalized) Theta_13
+ +      -0.3045 * (normalized) Alpha_13
+ +       0.3494 * (normalized) LowBeta_13
+ +      -0.6954 * (normalized) HighBeta_13
+ +       0.4541 * (normalized) Gamma_13
+ +      -0.5109 * (normalized) Theta_14
+ +      -0.4962 * (normalized) Alpha_14
+ +       0.4869 * (normalized) LowBeta_14
+ +      -0.4404 * (normalized) HighBeta_14
+ +       0.1416 * (normalized) Gamma_14
+ +      -0.8377 * (normalized) Theta_15
+ +      -0.2688 * (normalized) Alpha_15
+ +       0.655  * (normalized) LowBeta_15
+ +      -0.7037 * (normalized) HighBeta_15
+ +      -0.073  * (normalized) Gamma_15
+ +       0.2854 * (normalized) Theta_16
+ +       0.4462 * (normalized) Alpha_16
+ +       0.5776 * (normalized) LowBeta_16
+ +      -0.016  * (normalized) HighBeta_16
+ +       0.8421 * (normalized) Gamma_16
+ +       0.03   * (normalized) Theta_17
+ +      -0.4593 * (normalized) Alpha_17
+ +       0.5045 * (normalized) LowBeta_17
+ +      -0.4354 * (normalized) HighBeta_17
+ +      -0.4176 * (normalized) Gamma_17
+ +       0.5101 * (normalized) Theta_18
+ +       0.5975 * (normalized) Alpha_18
+ +       0.1107 * (normalized) LowBeta_18
+ +       0.432  * (normalized) HighBeta_18
+ +      -0.3619 * (normalized) Gamma_18
+ +      -0.0712 * (normalized) Theta_19
+ +      -0.2302 * (normalized) Alpha_19
+ +      -0.4145 * (normalized) LowBeta_19
+ +      -1.0713 * (normalized) HighBeta_19
+ +      -0.119  * (normalized) Gamma_19
+ +       0.0248 * (normalized) Theta_20
+ +       0.3776 * (normalized) Alpha_20
+ +       0.3292 * (normalized) LowBeta_20
+ +      -0.1991 * (normalized) HighBeta_20
+ +      -0.1071 * (normalized) Gamma_20
+ +      -0.2387 * (normalized) Theta_21
+ +       0.7701 * (normalized) Alpha_21
+ +       0.8624 * (normalized) LowBeta_21
+ +      -0.917  * (normalized) HighBeta_21
+ +      -0.0951 * (normalized) Gamma_21
+ +       0.0371 * (normalized) Theta_22
+ +       0.0657 * (normalized) Alpha_22
+ +       0.6456 * (normalized) LowBeta_22
+ +      -0.4966 * (normalized) HighBeta_22
+ +       0.0906 * (normalized) Gamma_22
+ +      -0.7733 * (normalized) Theta_23
+ +       0.2263 * (normalized) Alpha_23
+ +      -0.2439 * (normalized) LowBeta_23
+ +       0.2903 * (normalized) HighBeta_23
+ +       0.1025 * (normalized) Gamma_23
+ +      -0.8268 * (normalized) Theta_24
+ +      -0.2239 * (normalized) Alpha_24
+ +      -0.2101 * (normalized) LowBeta_24
+ +       0.6406 * (normalized) HighBeta_24
+ +      -0.0781 * (normalized) Gamma_24
+ +       0.7621 * (normalized) Theta_25
+ +       0.0977 * (normalized) Alpha_25
+ +       0.5148 * (normalized) LowBeta_25
+ +      -0.4934 * (normalized) HighBeta_25
+ +      -0.5349 * (normalized) Gamma_25
+ +      -0.2027 * (normalized) Theta_26
+ +      -0.5684 * (normalized) Alpha_26
+ +      -1.0793 * (normalized) LowBeta_26
+ +      -0.6444 * (normalized) HighBeta_26
+ +      -0.6584 * (normalized) Gamma_26
+ +      -0.2996 * (normalized) Theta_27
+ +      -0.2733 * (normalized) Alpha_27
+ +       0.2438 * (normalized) LowBeta_27
+ +      -0.3797 * (normalized) HighBeta_27
+ +      -0.2896 * (normalized) Gamma_27
+ +       0.8666 * (normalized) Theta_28
+ +      -0.3251 * (normalized) Alpha_28
+ +      -0.3127 * (normalized) LowBeta_28
+ +       0.2683 * (normalized) HighBeta_28
+ +       1.3068 * (normalized) Gamma_28
+ +      -0.3141 * (normalized) Theta_29
+ +      -0.3448 * (normalized) Alpha_29
+ +       0.4322 * (normalized) LowBeta_29
+ +       0.4571 * (normalized) HighBeta_29
+ +       0.9634 * (normalized) Gamma_29
+ +      -0.2819 * (normalized) Theta_30
+ +       0.2343 * (normalized) Alpha_30
+ +      -0.0134 * (normalized) LowBeta_30
+ +      -0.6343 * (normalized) HighBeta_30
+ +       0.0473 * (normalized) Gamma_30
+ +      -0.3201 * (normalized) Theta_31
+ +       0.2609 * (normalized) Alpha_31
+ +      -0.37   * (normalized) LowBeta_31
+ +      -0.2243 * (normalized) HighBeta_31
+ +       0.1003 * (normalized) Gamma_31
+ +      -0.5654 * (normalized) Theta_32
+ +       0.3789 * (normalized) Alpha_32
+ +       0.3359 * (normalized) LowBeta_32
+ +       0.7807 * (normalized) HighBeta_32
+ +       0.0619 * (normalized) Gamma_32
+ +       1.0293
+
+Number of kernel evaluations: 134012 (90% cached)
+
+
+
+Time taken to build model: 0.08 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         540               61.1552 %
+Incorrectly Classified Instances       343               38.8448 %
+Kappa statistic                          0.0095
+Mean absolute error                      0.3884
+Root mean squared error                  0.6233
+Relative absolute error                 81.8354 %
+Root relative squared error            127.9421 %
+Total Number of Instances              883     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.026     0.018      0.474     0.026     0.05       0.504    -1
+                 0.982     0.974      0.615     0.982     0.756      0.504    1
+Weighted Avg.    0.612     0.604      0.56      0.612     0.482      0.504
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+   9 333 |   a = -1
+  10 531 |   b = 1
