@@ -1,6 +1,5 @@
-function result = RunFullNormalizedFFT(dataArray)
+function result = RunFullNormalizedFFT(permutedArray)
 
-permutedArray = permute(dataArray, [3,1,2]);
 dataSize = size(permutedArray);
 secondLength = dataSize(1) / 63;
 
@@ -15,7 +14,7 @@ for i = 1:dataSize(2) % movies
     for j = 1:dataSize(3) %channels
         
         for band = 1:5
-            result(i,j,band) = videoFFT(i,j,band) / baselineFFT(i,j,band);
+            result(i,j,band) = videoFFT(i,j,band) - baselineFFT(i,j,band);
         end
     end
 end

@@ -13,7 +13,8 @@ data = data(:,1:numOfChannels,:); %remove excess channels
 
 participantResult = zeros(numOfMovies,numOfBands * numOfChannels + numOfLabels); 
 
-normalizedFFT = RunFullNormalizedFFT(data);
+permutedArray = permute(data, [3,1,2]);
+fftResult = RunFftOnFullData(permutedArray);
 
 for movieIndex = 1:numOfMovies % movies
     %enter labels
@@ -27,6 +28,6 @@ for movieIndex = 1:numOfMovies % movies
     
     for channelIndex = 1:numOfChannels % movies
        writeToIndex = (channelIndex-1) * numOfBands + numOfLabels;
-       participantResult(movieIndex, 1 + writeToIndex:writeToIndex + numOfBands) = normalizedFFT(movieIndex, channelIndex,1:5); 
+       participantResult(movieIndex, 1 + writeToIndex:writeToIndex + numOfBands) = fftResult(movieIndex, channelIndex,1:5); 
     end
 end
