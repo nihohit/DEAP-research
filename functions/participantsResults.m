@@ -1,4 +1,5 @@
-function participantResult = participantsResults(participantsIndex, numOfLabels, numOfChannels, numOfBands, numOfMovies)
+function participantResult = participantsResults(participantsIndex, numOfLabels, numOfChannels, numOfBands, ...
+    numOfMovies, numOfSegments)
 
 if participantsIndex < 10
     fileName = strcat('C:\Users\Shachar\Desktop\data_preprocessed_matlab\s0', num2str(participantsIndex), '.mat');
@@ -11,10 +12,9 @@ a = figure('visible','off');
 
 data = data(:,1:numOfChannels,:); %remove excess channels
 
-participantResult = zeros(numOfMovies,numOfBands * numOfChannels + numOfLabels); 
+participantResult = zeros(numOfMovies,numOfSegments * numOfBands * numOfChannels + numOfLabels); 
 
-permutedArray = permute(data, [3,1,2]);
-fftResult = RunFftOnFullData(permutedArray);
+fftResult = RunFftOnSegmentedData(data, size(labels), numOfChannels, numOfMovies, numOfBands, numOfSegments);
 
 for movieIndex = 1:numOfMovies % movies
     %enter labels
@@ -27,7 +27,11 @@ for movieIndex = 1:numOfMovies % movies
     end
     
     for channelIndex = 1:numOfChannels % movies
-       writeToIndex = (channelIndex-1) * numOfBands + numOfLabels;
-       participantResult(movieIndex, 1 + writeToIndex:writeToIndex + numOfBands) = fftResult(movieIndex, channelIndex,1:5); 
+        for segmentIndex = 1:numOfSegments
+            channelOffset = (channelIndex - 1) * numOfBands * numOfSegments;
+            writeToIndex = channelOffset + (segmentIndex - 1) * numOfBands + numOfLabels;
+            participantResult(movieIndex, 1 + writeToIndex:writeToIndex + numOfBands) = ...
+                fftResult(movieIndex, channelIndex, segmentIndex, :);
+        end
     end
 end

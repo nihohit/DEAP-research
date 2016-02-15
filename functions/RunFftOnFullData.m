@@ -30,6 +30,3 @@ for i = 1:sizeOfResult(1)
         result(i,j,5) = nanmean(permutedResult(i,j,gammaMinIndex: gammaMaxIndex-1)); % gamma
     end
 end
-
-
-
