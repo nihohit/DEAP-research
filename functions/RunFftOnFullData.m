@@ -10,7 +10,7 @@ f = frequency/2*linspace(0,1,nfft/2+1);
 X = fft(data,nfft);
 X = X(1:nfft/2+1,:,:); % cut the vector in 2, and get the relevant half
 permutedResult = permute(abs(X),[2,3,1]);
-
+permutedResult = CleanData(permutedResult);
 thetaMinIndex = find(f >= 4 , 1);
 alphaMinIndex = find(f >= 8 , 1);
 lowBetaMinIndex = find(f >= 16 , 1);
@@ -23,11 +23,11 @@ result = zeros(sizeOfResult(1), sizeOfResult(2), 5);
 
 for i = 1:sizeOfResult(1)
     for j = 1 : sizeOfResult(2)
-        result(i,j,1) = mean(permutedResult(i,j,thetaMinIndex: alphaMinIndex-1)); %theta
-        result(i,j,2) = mean(permutedResult(i,j,alphaMinIndex: lowBetaMinIndex-1,1)); %alpha
-        result(i,j,3) = mean(permutedResult(i,j,lowBetaMinIndex: highBetaMinIndex-1,1)); %low beta
-        result(i,j,4) = mean(permutedResult(i,j,highBetaMinIndex: gammaMinIndex-1,1)); %high beta
-        result(i,j,5) = mean(permutedResult(i,j,gammaMinIndex: gammaMaxIndex-1)); % gamma
+        result(i,j,1) = nanmean(permutedResult(i,j,thetaMinIndex: alphaMinIndex-1)); %theta
+        result(i,j,2) = nanmean(permutedResult(i,j,alphaMinIndex: lowBetaMinIndex-1,1)); %alpha
+        result(i,j,3) = nanmean(permutedResult(i,j,lowBetaMinIndex: highBetaMinIndex-1,1)); %low beta
+        result(i,j,4) = nanmean(permutedResult(i,j,highBetaMinIndex: gammaMinIndex-1,1)); %high beta
+        result(i,j,5) = nanmean(permutedResult(i,j,gammaMinIndex: gammaMaxIndex-1)); % gamma
     end
 end
 

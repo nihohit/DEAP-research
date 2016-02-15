@@ -1,7 +1,7 @@
 function fileName = GetFilename(labelIndex)
 
-currentExperiment = 'fullFFT';
+currentExperiment = 'fullFfftRemovedDeviations';
 
 name = GetLabelName(labelIndex);
-fileName = strcat('../data preprocessing results/' , name , currentExperiment, '.arff');
+fileName = strcat('../data preprocessing results/' , name ,'_', currentExperiment,'_', date ,'.arff');
 close all;
