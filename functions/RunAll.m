@@ -8,26 +8,12 @@ numOfMovies = 40;
 numOfSegments = 15;
 resultArrayLength = numOfChannels * numOfBands * numOfSegments + 1;
 
-arffHeader = '\n\n';
-
-for channel = 1:numOfChannels
-    for segment = 1:numOfSegments
-        suffix = strcat(int2str(channel), '_', int2str(segment),' numeric\n');
-        prefix = '@attribute ';
-        theta = strcat(prefix,' Theta', suffix);
-        alpha = strcat(prefix,' Alpha', suffix);
-        lowBeta = strcat(prefix,' LowBeta', suffix);
-        highBeta = strcat(prefix,' HighBeta', suffix);
-        gamma = strcat(prefix,' Gamma', suffix);
-        arffHeader = strcat(arffHeader, theta, alpha, lowBeta, highBeta, gamma);
-    end
-end
-
-arffHeader = strcat(arffHeader, '@attribute class {-1,1}\n\n@data\n');
+%create .arff header
+arffHeader = GetArffHeader(numOfChannels, numOfSegments);
 
 %create files, write arffHeaders
 for labelIndex = 1:numOfLabels 
-    fileName = GetFilename(labelIndex);
+    fileName = GetTargetFilename(labelIndex);
     name = GetLabelName(labelIndex);
     fid = fopen(fileName, 'w');
     fprintf(fid, sprintf('@relation %s %s',name,arffHeader));
@@ -35,12 +21,11 @@ for labelIndex = 1:numOfLabels
 end
 
 for participantsIndex = 1:numOfParticipants
-    
     participantResult =  participantsResults(participantsIndex, numOfLabels, numOfChannels, numOfBands, ...
         numOfMovies, numOfSegments);
     
     for labelIndex = 1:numOfLabels 
-        fileName = GetFilename(labelIndex);
+        fileName = GetTargetFilename(labelIndex);
         % find all non-zero indices
         relevantResults = find(participantResult(:,labelIndex));
         numOfRelevantResults = length(relevantResults);

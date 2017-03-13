@@ -1,13 +1,9 @@
-function participantResult = participantsResults(participantsIndex, numOfLabels, numOfChannels, numOfBands, ...
+function participantResult = participantsResults(participantIndex, numOfLabels, numOfChannels, numOfBands, ...
     numOfMovies, numOfSegments)
 
-if participantsIndex < 10
-    fileName = strcat('C:\Users\Shachar\Desktop\data_preprocessed_matlab\s0', num2str(participantsIndex), '.mat');
-else
-    fileName = strcat('C:\Users\Shachar\Desktop\data_preprocessed_matlab\s', num2str(participantsIndex), '.mat');
-end
+fileName = GetParticipantFilename(participantIndex);
 
-load(fileName);
+load(fileName); %this loads the 'data' array.
 a = figure('visible','off');
 
 data = data(:,1:numOfChannels,:); %remove excess channels
@@ -15,6 +11,7 @@ data = data(:,1:numOfChannels,:); %remove excess channels
 participantResult = zeros(numOfMovies,numOfSegments * numOfBands * numOfChannels + numOfLabels); 
 
 fftResult = RunFftOnSegmentedData(data, size(labels), numOfChannels, numOfMovies, numOfBands, numOfSegments);
+
 
 for movieIndex = 1:numOfMovies % movies
     %enter labels
