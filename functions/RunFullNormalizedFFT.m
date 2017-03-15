@@ -5,8 +5,8 @@ secondLength = dataSize(1) / 63;
 
 baseline = permutedArray(1:secondLength*3,:,:);
 video = permutedArray(secondLength*3:length(permutedArray),:,:);
-baselineFFT = RunFftOnFullData(baseline);
-videoFFT = RunFftOnFullData(video);
+baselineFFT = RunFft(baseline);
+videoFFT = RunFft(video);
 
 result = zeros(dataSize(2), dataSize(3), 5);
 

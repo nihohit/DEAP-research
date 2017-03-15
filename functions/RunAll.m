@@ -1,5 +1,7 @@
 a = figure('visible','off');
 
+currentExperiment = 'segmented_15Segments_removedDeviations';
+
 numOfLabels = 4;
 numOfChannels = 32;
 numOfBands = 5;
@@ -13,7 +15,7 @@ arffHeader = GetArffHeader(numOfChannels, numOfSegments);
 
 %create files, write arffHeaders
 for labelIndex = 1:numOfLabels 
-    fileName = GetTargetFilename(labelIndex);
+    fileName = GetTargetFilename(labelIndex, currentExperiment);
     name = GetLabelName(labelIndex);
     fid = fopen(fileName, 'w');
     fprintf(fid, sprintf('@relation %s %s',name,arffHeader));
@@ -25,7 +27,7 @@ for participantsIndex = 1:numOfParticipants
         numOfMovies, numOfSegments);
     
     for labelIndex = 1:numOfLabels 
-        fileName = GetTargetFilename(labelIndex);
+        fileName = GetTargetFilename(labelIndex, currentExperiment);
         % find all non-zero indices
         relevantResults = find(participantResult(:,labelIndex));
         numOfRelevantResults = length(relevantResults);

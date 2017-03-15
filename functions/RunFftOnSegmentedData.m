@@ -22,7 +22,7 @@ for i = 1:sizeOfData(1)
     end
 end
 
-result = RunFftOnFullData4dData(segmentedData);
+result = RunFft(segmentedData);
 close all;
 
 end
