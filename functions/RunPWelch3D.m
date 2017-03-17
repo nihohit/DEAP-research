@@ -1,9 +1,14 @@
 function result = RunPWelch3D(data)
-data = permute(data,[3,1,2]);
+sizeOfData = size(data);
+psd = zeros(sizeOfData(1), sizeOfData(2), sizeOfData(3)); 
 
 a = figure('visible','off');
 frequency=128;
-[X, frequencies] = pwelch(data, [],[],[],frequency);
+for i = 1:sizeOfData(1)
+    for j = 1 : sizeOfData(2)
+        [X, frequencies] = pwelch(squeeze(data(i,j,:)), [],[],[],frequency);
+        psd(i,j,:) = X;
+    end
+end
 
-permutedResult = permute(abs(X),[2,3,1]);
-result = SignalToBands4D(permutedResult, frequencies);
+result = SignalToBands4D(psd, frequencies);
