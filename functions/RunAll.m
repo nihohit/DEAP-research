@@ -13,6 +13,7 @@ resultArrayLength = numOfChannels * numOfBands * numOfSegments + 1;
 %create .arff header
 arffHeader = GetArffHeader(numOfChannels, numOfSegments);
 
+
 %create files, write arffHeaders
 for labelIndex = 1:numOfLabels 
     fileName = GetTargetFilename(labelIndex, currentExperiment);

@@ -22,7 +22,7 @@ for i = 1:sizeOfData(1)
     end
 end
 
-result = RunPWelch4D(segmentedData);
+result = RunFFT4D(segmentedData);
 close all;
 
 end
