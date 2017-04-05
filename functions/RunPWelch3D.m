@@ -1,6 +1,6 @@
 function result = RunPWelch3D(data)
 sizeOfData = size(data);
-psd = zeros(sizeOfData(1), sizeOfData(2), sizeOfData(3)); 
+psd = zeros(sizeOfData(1), sizeOfData(2), 1025); 
 
 a = figure('visible','off');
 frequency=128;
@@ -11,4 +11,4 @@ for i = 1:sizeOfData(1)
     end
 end
 
-result = SignalToBands4D(psd, frequencies);
+result = SignalToBands3D(psd, frequencies);

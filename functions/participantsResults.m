@@ -1,5 +1,5 @@
 function participantResult = participantsResults(participantIndex, numOfLabels, numOfChannels, numOfBands, ...
-    numOfMovies, numOfSegments)
+    numOfMovies, numOfSegments, runFFT, cleanData)
 
 fileName = GetParticipantFilename(participantIndex);
 
@@ -8,10 +8,17 @@ a = figure('visible','off');
 
 data = data(:,1:numOfChannels,:); %remove excess channels
 
+if (cleanData)
+   data = CleanData(data); 
+end
+
 participantResult = zeros(numOfMovies,numOfSegments * numOfBands * numOfChannels + numOfLabels); 
 
-fftResult = RunFftOnSegmentedData(data, size(labels), numOfChannels, numOfMovies, numOfBands, numOfSegments);
-
+if(runFFT)
+    transformResult = RunFFT3D(data);
+else
+    transformResult = RunPWelch3D(data);
+end
 
 for movieIndex = 1:numOfMovies % movies
     %enter labels
@@ -28,7 +35,7 @@ for movieIndex = 1:numOfMovies % movies
             channelOffset = (channelIndex - 1) * numOfBands * numOfSegments;
             writeToIndex = channelOffset + (segmentIndex - 1) * numOfBands + numOfLabels;
             participantResult(movieIndex, 1 + writeToIndex:writeToIndex + numOfBands) = ...
-                fftResult(movieIndex, channelIndex, segmentIndex, :);
+                transformResult(movieIndex, channelIndex, segmentIndex, :);
         end
     end
 end

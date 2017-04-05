@@ -1,52 +1,68 @@
 a = figure('visible','off');
 
-currentExperiment = 'segmented_15Segments_removedDeviations';
+currentExperiment = 'average_value';
 
 numOfLabels = 4;
 numOfChannels = 32;
 numOfBands = 5;
 numOfParticipants = 32;
 numOfMovies = 40;
-numOfSegments = 15;
+numOfSegments = 1;
 resultArrayLength = numOfChannels * numOfBands * numOfSegments + 1;
 
-%create .arff header
-arffHeader = GetArffHeader(numOfChannels, numOfSegments);
-
-
-%create files, write arffHeaders
-for labelIndex = 1:numOfLabels 
-    fileName = GetTargetFilename(labelIndex, currentExperiment);
-    name = GetLabelName(labelIndex);
-    fid = fopen(fileName, 'w');
-    fprintf(fid, sprintf('@relation %s %s',name,arffHeader));
-    fclose(fid);
-end
-
-for participantsIndex = 1:numOfParticipants
-    participantResult =  participantsResults(participantsIndex, numOfLabels, numOfChannels, numOfBands, ...
-        numOfMovies, numOfSegments);
-    
-    for labelIndex = 1:numOfLabels 
-        fileName = GetTargetFilename(labelIndex, currentExperiment);
-        % find all non-zero indices
-        relevantResults = find(participantResult(:,labelIndex));
-        numOfRelevantResults = length(relevantResults);
-        relevantParticipantResult = zeros(numOfRelevantResults,resultArrayLength);
-        
-        % enter all non zero indices into array
-        for i = 1:numOfRelevantResults
-            relevantParticipantResult(i,resultArrayLength) = participantResult(relevantResults(i), labelIndex);
-            relevantParticipantResult(i,1:resultArrayLength - 1) = participantResult(relevantResults(i), ...
-                numOfLabels + 1:numOfChannels * numOfBands * numOfSegments + numOfLabels);
-        end
-        dlmwrite (fileName, relevantParticipantResult, '-append');
-
+for experimentCase = 1:4
+    runFFT = mod(experimentCase, 2) == 1;
+    cleanData = experimentCase - 2 > 0;
+    currentExperimentName = currentExperiment;
+    if (runFFT)
+        currentExperimentName = strcat(currentExperimentName, '_FFT');
+    else
+        currentExperimentName = strcat(currentExperimentName, '_PWelch');
     end
     
-    clear participantResult;
+    if (cleanData)
+        currentExperimentName = strcat(currentExperimentName, '_cleanData');
+    end
     
-    disp(sprintf('written participant %d', participantsIndex));
+    disp(currentExperimentName);
+    
+    %create .arff header
+    arffHeader = GetArffHeader(numOfChannels, numOfSegments);
+    
+    %create files, write arffHeaders
+    for labelIndex = 1:numOfLabels
+        fileName = GetTargetFilename(labelIndex, currentExperimentName);
+        name = GetLabelName(labelIndex);
+        fid = fopen(fileName, 'w');
+        fprintf(fid, sprintf('@relation %s %s',name,arffHeader));
+        fclose(fid);
+    end
+    
+    for participantsIndex = 1:numOfParticipants
+        participantResult =  participantsResults(participantsIndex, numOfLabels, numOfChannels, numOfBands, ...
+            numOfMovies, numOfSegments, runFFT, cleanData);
+        
+        for labelIndex = 1:numOfLabels
+            fileName = GetTargetFilename(labelIndex, currentExperimentName);
+            % find all non-zero indices
+            relevantResults = find(participantResult(:,labelIndex));
+            numOfRelevantResults = length(relevantResults);
+            relevantParticipantResult = zeros(numOfRelevantResults,resultArrayLength);
+            
+            % enter all non zero indices into array
+            for i = 1:numOfRelevantResults
+                relevantParticipantResult(i,resultArrayLength) = participantResult(relevantResults(i), labelIndex);
+                relevantParticipantResult(i,1:resultArrayLength - 1) = participantResult(relevantResults(i), ...
+                    numOfLabels + 1:numOfChannels * numOfBands * numOfSegments + numOfLabels);
+            end
+            dlmwrite (fileName, relevantParticipantResult, '-append');
+            
+        end
+        
+        clear participantResult;
+        
+        disp(sprintf('written participant %d', participantsIndex));
+    end
+    
+    close all;
 end
-
-close all;

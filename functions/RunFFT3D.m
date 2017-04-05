@@ -13,6 +13,6 @@ X = fft(data,nfft);
 X = X(1:nfft/2+1,:,:,:); % cut the vector in 2, and get the relevant half
 frequencyDomainResult = permute(abs(X),[2,3,1]);
 
-result = SignalToBands3D(frequencyDomainResult);
+result = SignalToBands3D(frequencyDomainResult, f);
 
 end
