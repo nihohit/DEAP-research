@@ -1,4 +1,4 @@
-function participantResult = participantsResults(participantIndex, numOfLabels, numOfChannels, numOfBands, ...
+ function participantResult = participantsResults(participantIndex, numOfLabels, numOfChannels, numOfBands, ...
     numOfMovies, numOfSegments, runFFT, cleanData)
 
 fileName = GetParticipantFilename(participantIndex);
@@ -7,10 +7,6 @@ load(fileName); %this loads the 'data' array.
 a = figure('visible','off');
 
 data = data(:,1:numOfChannels,:); %remove excess channels
-
-if (cleanData)
-   data = CleanData(data); 
-end
 
 participantResult = zeros(numOfMovies,numOfSegments * numOfBands * numOfChannels + numOfLabels); 
 
@@ -38,4 +34,11 @@ for movieIndex = 1:numOfMovies % movies
                 transformResult(movieIndex, channelIndex, segmentIndex, :);
         end
     end
+end
+
+if cleanData
+    for movieIndex = 1:numOfMovies % movies
+        participantResult(movieIndex, 5:numOfSegments * numOfBands * numOfChannels + numOfLabels) = ...
+            CleanData(participantResult(movieIndex, numOfSegments * numOfBands * numOfChannels + numOfLabels));
+    end 
 end

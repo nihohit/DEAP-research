@@ -24,8 +24,6 @@ for experimentCase = 1:4
         currentExperimentName = strcat(currentExperimentName, '_cleanData');
     end
     
-    disp(currentExperimentName);
-    
     %create .arff header
     arffHeader = GetArffHeader(numOfChannels, numOfSegments);
     
@@ -48,20 +46,26 @@ for experimentCase = 1:4
             relevantResults = find(participantResult(:,labelIndex));
             numOfRelevantResults = length(relevantResults);
             relevantParticipantResult = zeros(numOfRelevantResults,resultArrayLength);
-            
             % enter all non zero indices into array
+            
+            fid = fopen(fileName, 'at');
             for i = 1:numOfRelevantResults
                 relevantParticipantResult(i,resultArrayLength) = participantResult(relevantResults(i), labelIndex);
                 relevantParticipantResult(i,1:resultArrayLength - 1) = participantResult(relevantResults(i), ...
                     numOfLabels + 1:numOfChannels * numOfBands * numOfSegments + numOfLabels);
+                resultAsString = num2str(relevantParticipantResult(i, :), '%.2f,');
+                cleanedResultAsString = strrep(resultAsString, ' NaN', '?');
+                cleanedResultAsString = strrep(cleanedResultAsString, '.00', '');
+                fprintf (fid, cleanedResultAsString);
+                fprintf (fid, '\n');
             end
-            dlmwrite (fileName, relevantParticipantResult, '-append');
             
+            fclose(fid);
         end
         
         clear participantResult;
         
-        disp(sprintf('written participant %d', participantsIndex));
+        disp(sprintf('written participant %d to %s', participantsIndex, currentExperimentName));
     end
     
     close all;
