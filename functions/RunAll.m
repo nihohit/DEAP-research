@@ -1,6 +1,6 @@
 a = figure('visible','off');
 
-currentExperiment = 'average';
+currentExperiment = 'averageLog';
 
 numOfLabels = 4;
 numOfChannels = 32;
