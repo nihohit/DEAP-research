@@ -1,6 +1,6 @@
 a = figure('visible','off');
 
-currentExperiment = 'average_value';
+currentExperiment = 'average';
 
 numOfLabels = 4;
 numOfChannels = 32;
@@ -22,6 +22,8 @@ for experimentCase = 1:4
     
     if (cleanData)
         currentExperimentName = strcat(currentExperimentName, '_cleanData');
+    else
+        currentExperimentName = strcat(currentExperimentName, '_allData');
     end
     
     %create .arff header
