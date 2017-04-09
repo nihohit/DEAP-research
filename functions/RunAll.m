@@ -1,13 +1,14 @@
 a = figure('visible','off');
 
-currentExperiment = 'averageLog';
+currentExperiment = '4OverlappingSegments';
 
 numOfLabels = 4;
 numOfChannels = 32;
 numOfBands = 5;
 numOfParticipants = 32;
 numOfMovies = 40;
-numOfSegments = 1;
+numOfSegments = 4;
+segmentLength = 20;
 resultArrayLength = numOfChannels * numOfBands * numOfSegments + 1;
 
 for experimentCase = 1:4
@@ -40,7 +41,7 @@ for experimentCase = 1:4
     
     for participantsIndex = 1:numOfParticipants
         participantResult =  participantsResults(participantsIndex, numOfLabels, numOfChannels, numOfBands, ...
-            numOfMovies, numOfSegments, runFFT, cleanData);
+            numOfMovies, numOfSegments, segmentLength, runFFT, cleanData);
         
         for labelIndex = 1:numOfLabels
             fileName = GetTargetFilename(labelIndex, currentExperimentName);
@@ -57,6 +58,8 @@ for experimentCase = 1:4
                     numOfLabels + 1:numOfChannels * numOfBands * numOfSegments + numOfLabels);
                 resultAsString = num2str(relevantParticipantResult(i, :), '%.2f,');
                 cleanedResultAsString = strrep(resultAsString, ' NaN', '?');
+                cleanedResultAsString = strrep(cleanedResultAsString, '-inf', '?');
+                cleanedResultAsString = strrep(cleanedResultAsString, 'inf', '?');
                 cleanedResultAsString = strrep(cleanedResultAsString, '.00', '');
                 fprintf (fid, cleanedResultAsString);
                 fprintf (fid, '\n');

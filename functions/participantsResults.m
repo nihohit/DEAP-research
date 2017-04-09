@@ -1,22 +1,34 @@
  function participantResult = participantsResults(participantIndex, numOfLabels, numOfChannels, numOfBands, ...
-    numOfMovies, numOfSegments, runFFT, cleanData)
+    numOfMovies, numOfSegments, segmentLength, runFFT, cleanData)
 
 fileName = GetParticipantFilename(participantIndex);
 
 load(fileName); %this loads the 'data' array.
-a = figure('visible','off');
+figure('visible','off');
 
 data = data(:,1:numOfChannels,:); %remove excess channels
 sizeOfData = size(data);
 secondLength = sizeOfData(3) / 63;
-data = data(:,:,secondLength*3:secondLength*63); %remove baseline signal.
+data = data(:,:,secondLength*3+1:secondLength*63); %remove baseline signal.
 
-participantResult = zeros(numOfMovies,numOfSegments * numOfBands * numOfChannels + numOfLabels); 
-
-if(runFFT)
-    transformResult = RunFFT3D(data);
+if (numOfSegments == 1)  
+    participantResult = zeros(numOfMovies, numOfSegments * numOfBands * numOfChannels + numOfLabels);
+    
+    if(runFFT)
+        transformResult = RunFFT3D(data);
+    else
+        transformResult = RunPWelch3D(data);
+    end
 else
-    transformResult = RunPWelch3D(data);
+    participantResult = zeros(numOfMovies,numOfSegments * numOfBands * numOfChannels + numOfLabels);
+    
+    data = SegmentData(data, numOfLabels, numOfChannels, numOfMovies, numOfBands, numOfSegments, segmentLength);
+    
+    if(runFFT)
+        transformResult = RunFFT4D(data);
+    else
+        transformResult = RunPWelch4D(data);
+    end
 end
 
 for movieIndex = 1:numOfMovies % movies

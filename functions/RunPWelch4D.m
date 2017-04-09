@@ -1,6 +1,6 @@
 function result = RunPWelch4D(data)
 sizeOfData = size(data);
-psd = zeros(sizeOfData(1), sizeOfData(2), sizeOfData(3), 129); 
+psd = zeros(sizeOfData(1), sizeOfData(2), sizeOfData(3), 513); 
 
 a = figure('visible','off');
 frequency=128;
