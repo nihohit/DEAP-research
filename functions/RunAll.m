@@ -1,13 +1,13 @@
 a = figure('visible','off');
 
-currentExperiment = '4OverlappingSegments';
+currentExperiment = 'normalized';
 
 numOfLabels = 4;
 numOfChannels = 32;
 numOfBands = 5;
 numOfParticipants = 32;
 numOfMovies = 40;
-numOfSegments = 4;
+numOfSegments = 1;
 segmentLength = 20;
 resultArrayLength = numOfChannels * numOfBands * numOfSegments + 1;
 
