@@ -1,14 +1,14 @@
 a = figure('visible','off');
 
-currentExperiment = 'normalized';
+currentExperiment = '15Segments';
 
 numOfLabels = 4;
 numOfChannels = 32;
 numOfBands = 5;
 numOfParticipants = 32;
 numOfMovies = 40;
-numOfSegments = 1;
-segmentLength = 20;
+numOfSegments = 15;
+segmentLength = 4;
 resultArrayLength = numOfChannels * numOfBands * numOfSegments + 1;
 
 for experimentCase = 1:4

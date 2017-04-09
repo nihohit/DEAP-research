@@ -7,9 +7,9 @@ load(fileName); %this loads the 'data' array.
 figure('visible','off');
 
 data = data(:,1:numOfChannels,:); %remove excess channels
-%sizeOfData = size(data);
-%secondLength = sizeOfData(3) / 63;
-%data = data(:,:,secondLength*3+1:secondLength*63); %remove baseline signal.
+sizeOfData = size(data);
+secondLength = sizeOfData(3) / 63;
+data = data(:,:,secondLength*3+1:secondLength*63); %remove baseline signal.
 
 if (numOfSegments == 1)  
     participantResult = zeros(numOfMovies, numOfSegments * numOfBands * numOfChannels + numOfLabels);

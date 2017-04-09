@@ -9,7 +9,9 @@ for i = 1:sizeOfData(1)
         [X, frequencies] = pwelch(x, [],[],[],frequency);
         X = X';
         sizeOfResult = size(X);
-        psd = zeros(sizeOfData(1), sizeOfData(2), sizeOfData(3), sizeOfResult(1)); 
+        if (i ==1 && j == 1)
+        	psd = zeros(sizeOfData(1), sizeOfData(2), sizeOfResult(1), sizeOfResult(2)); 
+        end
         psd(i,j,:,:) = X;
     end
 end
