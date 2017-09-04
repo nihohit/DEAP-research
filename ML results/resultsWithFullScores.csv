@@ -1,0 +1,18 @@
+Row Labels,Min of F Score,Average of F Score2,Max of F Score3
+15Segments,0.50,0.58,0.65
+allData,0.61,0.63,0.65
+cleanData,0.50,0.53,0.57
+4OverlappingSegments,0.47,0.58,0.68
+allData,0.61,0.64,0.68
+cleanData,0.47,0.52,0.56
+average,0.43,0.52,0.63
+allData,0.49,0.55,0.63
+cleanData,0.43,0.50,0.55
+averageLog,0.47,0.55,0.64
+allData,0.54,0.60,0.64
+cleanData,0.47,0.51,0.55
+normalized,0.43,0.49,0.55
+allData,0.44,0.48,0.55
+cleanData,0.43,0.49,0.55
+Grand Total,0.43,0.54,0.68
+,0.61,0.64,0.68
